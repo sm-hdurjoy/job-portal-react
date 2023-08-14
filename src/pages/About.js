@@ -1,4 +1,13 @@
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
+
 export default function About() {
+  const [user, setUser] = useState("hakuna");
+
+  if (!user) {
+    return <Navigate to="/" replace={true} />;
+  }
+
   return (
     <div className="about">
       <h1>About Us</h1>
@@ -20,6 +29,7 @@ export default function About() {
         world where every individual finds fulfillment in their career journey
         and every organization thrives with the right talent.
       </p>
+      <button onClick={() => setUser(null)}>Log Out</button>
     </div>
   );
 }
